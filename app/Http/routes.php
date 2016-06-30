@@ -29,3 +29,4 @@ Route::resource('department', 'departmentController');
 Route::resource('employee', 'employeeController');
 Route::resource('skills', 'skillsController');
 Route::resource('job_type', 'job_typeController');
+Route::resource('job_title', 'job_titleController');
