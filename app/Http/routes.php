@@ -27,3 +27,4 @@ Route::resource('company_information', 'company_informationController');
 
 Route::resource('department', 'departmentController');
 Route::resource('employee', 'employeeController');
+Route::resource('skills', 'skillsController');
