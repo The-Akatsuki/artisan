@@ -26,12 +26,17 @@ class CreateCompanyInformationsTable extends Migration
             $table->string('contact_email');
             $table->string('website');
             $table->text('adress');
-            $table->integer('city');
-            $table->integer('state');
-            $table->integer('country');
+            $table->integer('city')->unsigned();
+            $table->integer('state')->unsigned();
+            $table->integer('country')->unsigned();
             $table->integer('pincode');
             $table->integer('timezone');
             $table->timestamps();
+            
+            $table->foreign('city')->references('id')->on('cities');
+            $table->foreign('state')->references('id')->on('states');
+            $table->foreign('country')->references('id')->on('countries');
+            
         });
     }
 
