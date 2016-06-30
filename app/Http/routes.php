@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('company_information', 'company_informationController');
