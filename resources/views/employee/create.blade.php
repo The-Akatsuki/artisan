@@ -23,23 +23,23 @@
         </div>
     </div>
     <div class="form-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
-        {!! Form::label('company_id', 'Company Id', ['class' => 'col-sm-3 control-label']) !!}
+        {!! Form::label('company_id', 'Company', ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-6">
-            {!! Form::number('company_id', null, ['class' => 'form-control']) !!}
+            {!! Form::select('company_id', $company, null, ['class' => 'form-control', 'onchange'=>'set_department($(this).val())']) !!}
             {!! $errors->first('company_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
     <div class="form-group {{ $errors->has('department_id') ? 'has-error' : ''}}">
-        {!! Form::label('department_id', 'Department Id', ['class' => 'col-sm-3 control-label']) !!}
+        {!! Form::label('department_id', 'Department', ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-6">
-            {!! Form::number('department_id', null, ['class' => 'form-control']) !!}
+            {!! Form::select('department_id', [''=>'Select Departments'],null, ['class' => 'form-control', 'id'=>'department_id']) !!}
             {!! $errors->first('department_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
     <div class="form-group {{ $errors->has('nationality') ? 'has-error' : ''}}">
         {!! Form::label('nationality', 'Nationality', ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-6">
-            {!! Form::number('nationality', null, ['class' => 'form-control']) !!}
+            {!! Form::text('nationality', null, ['class' => 'form-control']) !!}
             {!! $errors->first('nationality', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
@@ -199,6 +199,7 @@
     var countries = {!! $countries !!}
     var states = {!! $states !!}
     var cities = {!! $cities !!}
+    var departments = {!! $departments !!}
     
     function set_countries()
     {
@@ -231,9 +232,22 @@
         })
     }
     
+    
+    function set_department($company_id){
+        var html = '<option value="">Select Department</option>';
+        $.each(departments, function(index, value){
+            if(value.company_id == $company_id){
+                html += "<option value='"+value.id+"'>"+value.department_name+"</option>";                
+            }
+        })
+        $("#department_id").html(html);
+    }
+    
     function init_page(){
         set_countries();
     }
+    
+    
      
     
     @endif

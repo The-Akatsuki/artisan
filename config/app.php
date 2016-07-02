@@ -145,6 +145,7 @@ return [
         Collective\Html\HtmlServiceProvider::class, // For Watchtower Forms to function
         Smarch\Watchtower\WatchtowerServiceProvider::class, // For Watchtower
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,//Crud Generator
+        Orangehill\Iseed\IseedServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------

@@ -21,7 +21,7 @@
             <div class="form-group {{ $errors->has('currency') ? 'has-error' : ''}}">
                 {!! Form::label('currency', 'Currency', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('currency', null, ['class' => 'form-control']) !!}
+                    {!! Form::select('currency', $currency, null, ['class' => 'form-control']) !!}
                     {!! $errors->first('currency', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

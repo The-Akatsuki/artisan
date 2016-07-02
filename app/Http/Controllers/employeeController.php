@@ -28,16 +28,19 @@ class employeeController extends Controller {
      * @return void
      */
     public function create() {
-        $job_type = \App\job_type::lists('job_type', 'id');
-        $job_title = \App\job_title::lists('job_title', 'id');
-        $pay_grade = \App\pay_grade::lists('pay_grade', 'id');
+        $job_type = ['' => 'Select Job Type'] + \App\job_type::lists('job_type', 'id')->toArray();
+        $job_title = ['' => 'Select Job Title'] + \App\job_title::lists('job_title', 'id')->toArray();
+        $pay_grade = ['' => 'Select Pay Grade'] + \App\pay_grade::lists('pay_grade', 'id')->toArray();
 
         $countries = \App\countries::all('country_name', 'id');
         $states = \App\state::all('country_id', 'state_name', 'id');
         $cities = \App\cities::all('state_id', 'city_name', 'id');
 
+        $company = ['' => 'Select Company'] + (\App\company_information::lists('company_name', 'id')->toArray());
 
-        return view('employee.create', compact('job_type', 'job_title', 'pay_grade', 'countries', 'states', 'cities'));
+        $departments = \App\department::all('department_name', 'id', 'company_id');
+
+        return view('employee.create', compact('job_type', 'job_title', 'pay_grade', 'countries', 'states', 'cities', 'company', 'departments'));
     }
 
     /**
@@ -76,19 +79,21 @@ class employeeController extends Controller {
      * @return void
      */
     public function edit($id) {
-        $job_type = \App\job_type::lists('job_type', 'id');
-        $job_title = \App\job_title::lists('job_title', 'id');
-        $pay_grade = \App\pay_grade::lists('pay_grade', 'id');
-
+        $job_type = ['' => 'Select Job Type'] + \App\job_type::lists('job_type', 'id')->toArray();
+        $job_title = ['' => 'Select Job Title'] + \App\job_title::lists('job_title', 'id')->toArray();
+        $pay_grade = ['' => 'Select Pay Grade'] + \App\pay_grade::lists('pay_grade', 'id')->toArray();
 
         $countries = \App\countries::all('country_name', 'id');
         $states = \App\state::all('country_id', 'state_name', 'id');
         $cities = \App\cities::all('state_id', 'city_name', 'id');
 
+        $company = ['' => 'Select Company'] + (\App\company_information::lists('company_name', 'id')->toArray());
+        $departments = \App\department::all('department_name', 'id', 'company_id');
+
 
         $employee = employee::findOrFail($id);
 
-        return view('employee.edit', compact('employee', 'job_type', 'job_title', 'pay_grade', 'countries', 'states', 'cities'));
+        return view('employee.edit', compact('employee', 'job_type', 'job_title', 'pay_grade', 'countries', 'states', 'cities', 'company', 'departments'));
     }
 
     /**

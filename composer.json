@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "sukohi/package-creator": "2.*",
         "appzcoder/crud-generator": "^1.1",
-        "smarch/watchtower": "v1.1.5.3"
+        "smarch/watchtower": "v1.1.5.3",
+        "orangehill/iseed": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

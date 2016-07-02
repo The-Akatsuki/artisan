@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('employee_code');
             $table->integer('company_id');
             $table->integer('department_id');
-            $table->integer('nationality');
+            $table->string('nationality');
             $table->date('date_of_birth');
             $table->string('gender');
             $table->string('marital_status');

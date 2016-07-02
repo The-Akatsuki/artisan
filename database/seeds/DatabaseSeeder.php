@@ -13,7 +13,12 @@ class DatabaseSeeder extends Seeder {
         $this->call('CountriesTableSeeder');
         $this->call('StatesTableSeeder');
         $this->call('CitiesTableSeeder');
+        $this->call('CurrenciesTableSeeder');
         $this->call('rolesandpermission');
+        $this->call('JobTypesTableSeeder');
+        $this->call('JobTitlesTableSeeder');
+        $this->call('PayGradesTableSeeder');
+        $this->call('EmployeesTableSeeder');
     }
 
 }
