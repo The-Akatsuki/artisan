@@ -27,6 +27,10 @@ class employee extends Model {
      */
     protected $fillable = ['employee_name', 'employee_code', 'company_id', 'department_id', 'nationality', 'date_of_birth', 'gender', 'marital_status', 'mobile_number', 'landline', 'email', 'address', 'city', 'state', 'country', 'pincode', 'job_type', 'job_title', 'pay_grade', 'joining_date', 'termination_date', 'supevisor', 'notes'];
 
+    public function get_company() {
+        return $this->belongsTo('\App\company_information', 'company_id');
+    }
+    
     public function get_job_type() {
         return $this->belongsTo('\App\job_type', 'job_type');
     }

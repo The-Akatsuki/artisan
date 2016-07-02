@@ -26,4 +26,8 @@ class pay_grade extends Model
      * @var array
      */
     protected $fillable = ['pay_grade', 'currency', 'min_salary', 'max_salary'];
+    
+    public function get_currency(){
+        return $this->belongsTo('\App\currency', 'currency');
+    }
 }

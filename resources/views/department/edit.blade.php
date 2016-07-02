@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="form-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
-                {!! Form::label('company_id', 'Company Id', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('company_id', 'Company', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
                     {!! Form::select('company_id', $companies, null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('company_id', '<p class="help-block">:message</p>') !!}

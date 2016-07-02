@@ -8,7 +8,10 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> Employee Name </th><th> Employee Code </th><th> Company Id </th><th>Actions</th>
+                    <th>S.No</th><th> Employee Name </th>
+                    <th> Employee Code </th>
+                    <th> Company </th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,7 +20,9 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->employee_name }}</td><td>{{ $item->employee_code }}</td><td>{{ $item->company_id }}</td>
+                    <td>{{ $item->employee_name }}</td>
+                    <td>{{ $item->employee_code }}</td>
+                    <td>@if(count($item->get_company)>0){{ $item->get_company->company_name }}@endif</td>
                     <td>
                         <a href="{{ url('/employee/' . $item->id) }}" class="btn btn-success btn-xs" title="View employee"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                         <a href="{{ url('/employee/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit employee"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

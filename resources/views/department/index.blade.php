@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> Department Name </th><th> Description </th><th> Company Id </th><th>Actions</th>
+                    <th>S.No</th><th> Department Name </th><th> Description </th><th> Company </th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,9 +17,13 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->department_name }}</td><td>{{ $item->description }}</td><td>{{ $item->company_id }}</td>
+                    <td>{{ $item->department_name }}</td>
+                    <td>{{ $item->description }}</td>
+                    <td>@if(count($item->get_company)>0){{ $item->get_company->company_name }} @endif</td>
                     <td>
-                        <a href="{{ url('/department/' . $item->id) }}" class="btn btn-success btn-xs" title="View department"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
+                        <a href="{{ url('/department/' . $item->id) }}" class="btn btn-success btn-xs" title="View department">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"/>
+                        </a>
                         <a href="{{ url('/department/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit department"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                         {!! Form::open([
                             'method'=>'DELETE',

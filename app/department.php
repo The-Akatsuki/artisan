@@ -26,4 +26,9 @@ class department extends Model
      * @var array
      */
     protected $fillable = ['department_name', 'description', 'company_id', 'department_head', 'parent_department', 'sequence_order'];
+
+    public function get_company(){
+        return $this->belongsTo('\App\company_information', 'company_id');
+    }
+    
 }

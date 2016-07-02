@@ -17,7 +17,9 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->pay_grade }}</td><td>{{ $item->currency }}</td><td>{{ $item->min_salary }}</td>
+                    <td>{{ $item->pay_grade }}</td>
+                    <td>@if(count($item->get_currency)>0){{ $item->get_currency->currency }} @endif</td>
+                    <td>{{ $item->min_salary }}</td>
                     <td>
                         <a href="{{ url('/pay_grade/' . $item->id) }}" class="btn btn-success btn-xs" title="View pay_grade"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                         <a href="{{ url('/pay_grade/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit pay_grade"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
