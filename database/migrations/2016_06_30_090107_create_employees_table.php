@@ -30,7 +30,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('state');
             $table->integer('country');
             $table->integer('pincode');
-            $table->integer('employment_type');
+            $table->integer('job_type');
             $table->integer('job_title');
             $table->integer('pay_grade');
             $table->date('joining_date');

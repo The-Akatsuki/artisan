@@ -52,7 +52,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Company <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="{{ url('/company_information') }}">Company</a></li>
-					<li><a href="{{ url('/departments') }}">Departments</a></li>
+					<li><a href="{{ url('/department') }}">Departments</a></li>
 					<li><a href="{{ url('/watchtower') }}">Manage Roles and Permissions</a></li>				 
 				</ul>
 			</li>
