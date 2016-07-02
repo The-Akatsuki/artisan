@@ -24,7 +24,7 @@
                 <tr>
                     <th>ID</th><td>{{ $skill->id }}</td>
                 </tr>
-                <tr><th> Skill Name </th><td> {{ $skill->skill_name }} </td></tr><tr><th> Description </th><td> {{ $skill->description }} </td></tr>
+                <tr><th> Skill </th><td> {{ $skill->skill }} </td></tr><tr><th> Description </th><td> {{ $skill->description }} </td></tr>
             </tbody>
         </table>
     </div>

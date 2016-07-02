@@ -41,7 +41,7 @@ class skillsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['skill_name' => 'required', ]);
+        $this->validate($request, ['skill' => 'required', ]);
 
         skill::create($request->all());
 
@@ -87,7 +87,7 @@ class skillsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['skill_name' => 'required', ]);
+        $this->validate($request, ['skill' => 'required', ]);
 
         $skill = skill::findOrFail($id);
         $skill->update($request->all());
