@@ -36,3 +36,6 @@ Route::resource('skills', 'skillsController');
 
 Route::resource('qualifications', 'qualificationsController');
 Route::resource('certifications', 'certificationsController');
+Route::resource('employee_skills', 'employee_skillsController');
+
+Route::resource('employee_education', 'employee_educationController');
