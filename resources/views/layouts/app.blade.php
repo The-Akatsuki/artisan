@@ -68,6 +68,10 @@
                                         <li><a href="{{ url('/skills') }}"></i>Skills</a></li>
                                         <li><a href="{{ url('/qualifications') }}"></i>Qualifications</a></li>
                                         <li><a href="{{ url('/certifications') }}"></i>Certifications</a></li>
+                                        <li><a href="{{ url('/employee_skills') }}"></i>employee_skills</a></li>
+                                        <li><a href="{{ url('/employee_education') }}"></i>employee_education</a></li>
+                                        <li><a href="{{ url('/employee_certifications') }}"></i>employee_certifications</a></li>
+                                        <li><a href="{{ url('/employee_documents') }}"></i>employee_documents</a></li>
                                 </ul>
 			</li>
 

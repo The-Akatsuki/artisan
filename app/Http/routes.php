@@ -40,3 +40,4 @@ Route::resource('employee_skills', 'employee_skillsController');
 
 Route::resource('employee_education', 'employee_educationController');
 Route::resource('employee_certifications', 'employee_certificationsController');
+Route::resource('employee_documents', 'employee_documentsController');
