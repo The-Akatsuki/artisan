@@ -33,3 +33,5 @@ Route::resource('job_title', 'job_titleController');
 Route::resource('pay_grade', 'pay_gradeController');
 
 Route::resource('skills', 'skillsController');
+
+Route::resource('qualifications', 'qualificationsController');
