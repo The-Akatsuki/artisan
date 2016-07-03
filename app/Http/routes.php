@@ -35,3 +35,4 @@ Route::resource('pay_grade', 'pay_gradeController');
 Route::resource('skills', 'skillsController');
 
 Route::resource('qualifications', 'qualificationsController');
+Route::resource('certifications', 'certificationsController');
