@@ -65,7 +65,10 @@
 					<li><a href="{{ url('/job_type') }}">Employee/Job Type</a></li>
 					<li><a href="{{ url('/job_title') }}">Job title</a></li>
 					<li><a href="{{ url('/pay_grade') }}"></i>Pay Grade</a></li>
-				</ul>
+                                        <li><a href="{{ url('/skills') }}"></i>Skills</a></li>
+                                        <li><a href="{{ url('/qualifications') }}"></i>Qualifications</a></li>
+                                        <li><a href="{{ url('/certifications') }}"></i>Certifications</a></li>
+                                </ul>
 			</li>
 
                 </ul>

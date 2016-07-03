@@ -3,16 +3,19 @@
 @section('content')
 <div class="container">
 
-    <h1>Create New skill</h1>
-    <hr/>
+    <h1>Edit qualification {{ $qualification->id }}</h1>
 
-    {!! Form::open(['url' => '/skills', 'class' => 'form-horizontal']) !!}
+    {!! Form::model($qualification, [
+        'method' => 'PATCH',
+        'url' => ['/qualifications', $qualification->id],
+        'class' => 'form-horizontal'
+    ]) !!}
 
-                <div class="form-group {{ $errors->has('skill') ? 'has-error' : ''}}">
-                {!! Form::label('skill', 'Skill', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="form-group {{ $errors->has('qualification') ? 'has-error' : ''}}">
+                {!! Form::label('qualification', 'Qualification', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::text('skill', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    {!! $errors->first('skill', '<p class="help-block">:message</p>') !!}
+                    {!! Form::text('qualification', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! $errors->first('qualification', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
@@ -26,7 +29,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-3">
-            {!! Form::submit('Create', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::submit('Update', ['class' => 'btn btn-primary form-control']) !!}
         </div>
     </div>
     {!! Form::close() !!}

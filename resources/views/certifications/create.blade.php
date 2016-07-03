@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
 
-    <h1>Create New skill</h1>
+    <h1>Create New certification</h1>
     <hr/>
 
-    {!! Form::open(['url' => '/skills', 'class' => 'form-horizontal']) !!}
+    {!! Form::open(['url' => '/certifications', 'class' => 'form-horizontal']) !!}
 
-                <div class="form-group {{ $errors->has('skill') ? 'has-error' : ''}}">
-                {!! Form::label('skill', 'Skill', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="form-group {{ $errors->has('certification') ? 'has-error' : ''}}">
+                {!! Form::label('certification', 'Certification', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::text('skill', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    {!! $errors->first('skill', '<p class="help-block">:message</p>') !!}
+                    {!! Form::text('certification', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! $errors->first('certification', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">

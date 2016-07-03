@@ -11,11 +11,11 @@
         'class' => 'form-horizontal'
     ]) !!}
 
-                <div class="form-group {{ $errors->has('skill_name') ? 'has-error' : ''}}">
-                {!! Form::label('skill_name', 'Skill Name', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="form-group {{ $errors->has('skill') ? 'has-error' : ''}}">
+                {!! Form::label('skill', 'Skill', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::text('skill_name', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    {!! $errors->first('skill_name', '<p class="help-block">:message</p>') !!}
+                    {!! Form::text('skill', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! $errors->first('skill', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">

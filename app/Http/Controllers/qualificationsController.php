@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\skill;
+use App\qualification;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 
-class skillsController extends Controller
+class qualificationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,9 @@ class skillsController extends Controller
      */
     public function index()
     {
-        $skills = skill::paginate(15);
+        $qualifications = qualification::paginate(15);
 
-        return view('skills.index', compact('skills'));
+        return view('qualifications.index', compact('qualifications'));
     }
 
     /**
@@ -31,7 +31,7 @@ class skillsController extends Controller
      */
     public function create()
     {
-        return view('skills.create');
+        return view('qualifications.create');
     }
 
     /**
@@ -41,13 +41,13 @@ class skillsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['qualification' => 'required', ]);
 
-        skill::create($request->all());
+        qualification::create($request->all());
 
-        Session::flash('flash_message', 'skill added!');
+        Session::flash('flash_message', 'qualification added!');
 
-        return redirect('skills');
+        return redirect('qualifications');
     }
 
     /**
@@ -59,9 +59,9 @@ class skillsController extends Controller
      */
     public function show($id)
     {
-        $skill = skill::findOrFail($id);
+        $qualification = qualification::findOrFail($id);
 
-        return view('skills.show', compact('skill'));
+        return view('qualifications.show', compact('qualification'));
     }
 
     /**
@@ -73,9 +73,9 @@ class skillsController extends Controller
      */
     public function edit($id)
     {
-        $skill = skill::findOrFail($id);
+        $qualification = qualification::findOrFail($id);
 
-        return view('skills.edit', compact('skill'));
+        return view('qualifications.edit', compact('qualification'));
     }
 
     /**
@@ -87,14 +87,14 @@ class skillsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['qualification' => 'required', ]);
 
-        $skill = skill::findOrFail($id);
-        $skill->update($request->all());
+        $qualification = qualification::findOrFail($id);
+        $qualification->update($request->all());
 
-        Session::flash('flash_message', 'skill updated!');
+        Session::flash('flash_message', 'qualification updated!');
 
-        return redirect('skills');
+        return redirect('qualifications');
     }
 
     /**
@@ -106,10 +106,10 @@ class skillsController extends Controller
      */
     public function destroy($id)
     {
-        skill::destroy($id);
+        qualification::destroy($id);
 
-        Session::flash('flash_message', 'skill deleted!');
+        Session::flash('flash_message', 'qualification deleted!');
 
-        return redirect('skills');
+        return redirect('qualifications');
     }
 }

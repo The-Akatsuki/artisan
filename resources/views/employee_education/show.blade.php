@@ -3,17 +3,17 @@
 @section('content')
 <div class="container">
 
-    <h1>skill {{ $skill->id }}
-        <a href="{{ url('skills/' . $skill->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+    <h1>employee_education {{ $employee_education->id }}
+        <a href="{{ url('employee_education/' . $employee_education->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit employee_education"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
         {!! Form::open([
             'method'=>'DELETE',
-            'url' => ['skills', $skill->id],
+            'url' => ['employee_education', $employee_education->id],
             'style' => 'display:inline'
         ]) !!}
             {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true"/>', array(
                     'type' => 'submit',
                     'class' => 'btn btn-danger btn-xs',
-                    'title' => 'Delete skill',
+                    'title' => 'Delete employee_education',
                     'onclick'=>'return confirm("Confirm delete?")'
             ));!!}
         {!! Form::close() !!}
@@ -22,9 +22,9 @@
         <table class="table table-bordered table-striped table-hover">
             <tbody>
                 <tr>
-                    <th>ID</th><td>{{ $skill->id }}</td>
+                    <th>ID</th><td>{{ $employee_education->id }}</td>
                 </tr>
-                <tr><th> Skill </th><td> {{ $skill->skill }} </td></tr><tr><th> Description </th><td> {{ $skill->description }} </td></tr>
+                <tr><th> Employee Id </th><td> {{ $employee_education->employee_id }} </td></tr><tr><th> Qualification Id </th><td> {{ $employee_education->qualification_id }} </td></tr><tr><th> Institute </th><td> {{ $employee_education->institute }} </td></tr>
             </tbody>
         </table>
     </div>

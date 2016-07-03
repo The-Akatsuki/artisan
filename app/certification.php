@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class skill extends Model
+class certification extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'skills';
+    protected $table = 'certifications';
 
     /**
     * The database primary key value.
@@ -25,5 +25,5 @@ class skill extends Model
      *
      * @var array
      */
-    protected $fillable = ['skill', 'description'];
+    protected $fillable = ['certification', 'description'];
 }

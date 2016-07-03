@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> Skill Name </th><th> Description </th><th>Actions</th>
+                    <th>S.No</th><th> Skill </th><th> Description </th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,7 +17,7 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->skill_name }}</td><td>{{ $item->description }}</td>
+                    <td>{{ $item->skill }}</td><td>{{ $item->description }}</td>
                     <td>
                         <a href="{{ url('/skills/' . $item->id) }}" class="btn btn-success btn-xs" title="View skill"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                         <a href="{{ url('/skills/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

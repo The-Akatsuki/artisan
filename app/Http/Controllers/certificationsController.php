@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\skill;
+use App\certification;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 
-class skillsController extends Controller
+class certificationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,9 @@ class skillsController extends Controller
      */
     public function index()
     {
-        $skills = skill::paginate(15);
+        $certifications = certification::paginate(15);
 
-        return view('skills.index', compact('skills'));
+        return view('certifications.index', compact('certifications'));
     }
 
     /**
@@ -31,7 +31,7 @@ class skillsController extends Controller
      */
     public function create()
     {
-        return view('skills.create');
+        return view('certifications.create');
     }
 
     /**
@@ -41,13 +41,13 @@ class skillsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['certification' => 'required', ]);
 
-        skill::create($request->all());
+        certification::create($request->all());
 
-        Session::flash('flash_message', 'skill added!');
+        Session::flash('flash_message', 'certification added!');
 
-        return redirect('skills');
+        return redirect('certifications');
     }
 
     /**
@@ -59,9 +59,9 @@ class skillsController extends Controller
      */
     public function show($id)
     {
-        $skill = skill::findOrFail($id);
+        $certification = certification::findOrFail($id);
 
-        return view('skills.show', compact('skill'));
+        return view('certifications.show', compact('certification'));
     }
 
     /**
@@ -73,9 +73,9 @@ class skillsController extends Controller
      */
     public function edit($id)
     {
-        $skill = skill::findOrFail($id);
+        $certification = certification::findOrFail($id);
 
-        return view('skills.edit', compact('skill'));
+        return view('certifications.edit', compact('certification'));
     }
 
     /**
@@ -87,14 +87,14 @@ class skillsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['certification' => 'required', ]);
 
-        $skill = skill::findOrFail($id);
-        $skill->update($request->all());
+        $certification = certification::findOrFail($id);
+        $certification->update($request->all());
 
-        Session::flash('flash_message', 'skill updated!');
+        Session::flash('flash_message', 'certification updated!');
 
-        return redirect('skills');
+        return redirect('certifications');
     }
 
     /**
@@ -106,10 +106,10 @@ class skillsController extends Controller
      */
     public function destroy($id)
     {
-        skill::destroy($id);
+        certification::destroy($id);
 
-        Session::flash('flash_message', 'skill deleted!');
+        Session::flash('flash_message', 'certification deleted!');
 
-        return redirect('skills');
+        return redirect('certifications');
     }
 }

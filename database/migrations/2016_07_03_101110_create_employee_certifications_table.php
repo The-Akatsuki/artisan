@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSkillsTable extends Migration
+class CreateEmployeeCertificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,13 @@ class CreateSkillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skills', function(Blueprint $table) {
+        Schema::create('employee_certifications', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('skill_name');
-            $table->text('description');
+            $table->integer('employee_id');
+            $table->integer('certification_id');
+            $table->string('institute');
+            $table->date('granted_on');
+            $table->date('valid_upto');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateSkillsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('skills');
+        Schema::drop('employee_certifications');
     }
 }

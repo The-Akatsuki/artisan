@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\skill;
+use App\employee_skill;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 
-class skillsController extends Controller
+class employee_skillsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,9 @@ class skillsController extends Controller
      */
     public function index()
     {
-        $skills = skill::paginate(15);
+        $employee_skills = employee_skill::paginate(15);
 
-        return view('skills.index', compact('skills'));
+        return view('employee_skills.index', compact('employee_skills'));
     }
 
     /**
@@ -31,7 +31,7 @@ class skillsController extends Controller
      */
     public function create()
     {
-        return view('skills.create');
+        return view('employee_skills.create');
     }
 
     /**
@@ -41,13 +41,13 @@ class skillsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['employee_id' => 'required', 'skills_id' => 'required', ]);
 
-        skill::create($request->all());
+        employee_skill::create($request->all());
 
-        Session::flash('flash_message', 'skill added!');
+        Session::flash('flash_message', 'employee_skill added!');
 
-        return redirect('skills');
+        return redirect('employee_skills');
     }
 
     /**
@@ -59,9 +59,9 @@ class skillsController extends Controller
      */
     public function show($id)
     {
-        $skill = skill::findOrFail($id);
+        $employee_skill = employee_skill::findOrFail($id);
 
-        return view('skills.show', compact('skill'));
+        return view('employee_skills.show', compact('employee_skill'));
     }
 
     /**
@@ -73,9 +73,9 @@ class skillsController extends Controller
      */
     public function edit($id)
     {
-        $skill = skill::findOrFail($id);
+        $employee_skill = employee_skill::findOrFail($id);
 
-        return view('skills.edit', compact('skill'));
+        return view('employee_skills.edit', compact('employee_skill'));
     }
 
     /**
@@ -87,14 +87,14 @@ class skillsController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['skill' => 'required', ]);
+        $this->validate($request, ['employee_id' => 'required', 'skills_id' => 'required', ]);
 
-        $skill = skill::findOrFail($id);
-        $skill->update($request->all());
+        $employee_skill = employee_skill::findOrFail($id);
+        $employee_skill->update($request->all());
 
-        Session::flash('flash_message', 'skill updated!');
+        Session::flash('flash_message', 'employee_skill updated!');
 
-        return redirect('skills');
+        return redirect('employee_skills');
     }
 
     /**
@@ -106,10 +106,10 @@ class skillsController extends Controller
      */
     public function destroy($id)
     {
-        skill::destroy($id);
+        employee_skill::destroy($id);
 
-        Session::flash('flash_message', 'skill deleted!');
+        Session::flash('flash_message', 'employee_skill deleted!');
 
-        return redirect('skills');
+        return redirect('employee_skills');
     }
 }
