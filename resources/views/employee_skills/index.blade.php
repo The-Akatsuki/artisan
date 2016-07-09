@@ -8,7 +8,10 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> Employee Id </th><th> Skills Id </th><th> Details </th><th>Actions</th>
+                    <th>S.No</th>
+                    <th> Employee</th>
+                    <th> Skills </th>
+                    <th> Details </th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,7 +20,9 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->employee_id }}</td><td>{{ $item->skills_id }}</td><td>{{ $item->details }}</td>
+                    <td>{{ $item->get_employee->employee_name }}</td>
+                    <td>{{ $item->get_skill->skill }}</td>
+                    <td>{{ $item->details }}</td>
                     <td>
                         <a href="{{ url('/employee_skills/' . $item->id) }}" class="btn btn-success btn-xs" title="View employee_skill"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                         <a href="{{ url('/employee_skills/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit employee_skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

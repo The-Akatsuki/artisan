@@ -26,4 +26,12 @@ class employee_skill extends Model
      * @var array
      */
     protected $fillable = ['employee_id', 'skills_id', 'details'];
+    
+    public function get_employee(){
+        return $this->belongsTo('\App\employee', 'employee_id');
+    }
+    
+    public function get_skill(){
+        return $this->belongsTo('\App\skill', 'skills_id');
+    }
 }
