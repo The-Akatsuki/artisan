@@ -26,4 +26,12 @@ class employee_education extends Model
      * @var array
      */
     protected $fillable = ['employee_id', 'qualification_id', 'institute', 'start_date', 'completed_on'];
+    
+     public function get_employee(){
+        return $this->belongsTo('\App\employee', 'employee_id');
+    }
+    
+    public function get_qualification(){
+        return $this->belongsTo('\App\qualification', 'qualification_id');
+    }
 }

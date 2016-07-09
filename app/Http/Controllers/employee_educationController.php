@@ -31,7 +31,9 @@ class employee_educationController extends Controller
      */
     public function create()
     {
-        return view('employee_education.create');
+        $employees = \App\employee::lists('employee_name', 'id');
+        $qualification = \App\qualification::lists('qualification', 'id');
+        return view('employee_education.create', compact('employees','qualification'));
     }
 
     /**
@@ -75,7 +77,9 @@ class employee_educationController extends Controller
     {
         $employee_education = employee_education::findOrFail($id);
 
-        return view('employee_education.edit', compact('employee_education'));
+        $employees = \App\employee::lists('employee_name', 'id');
+        $qualification = \App\qualification::lists('qualification', 'id');
+        return view('employee_education.edit', compact('employee_education','employees','qualification'));
     }
 
     /**

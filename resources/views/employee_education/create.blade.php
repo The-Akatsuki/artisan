@@ -11,14 +11,14 @@
                 <div class="form-group {{ $errors->has('employee_id') ? 'has-error' : ''}}">
                 {!! Form::label('employee_id', 'Employee Id', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('employee_id', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('employee_id', $employees, null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('employee_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('qualification_id') ? 'has-error' : ''}}">
-                {!! Form::label('qualification_id', 'Qualification Id', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('qualification_id', 'Qualification', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('qualification_id', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('qualification_id', $qualification,null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('qualification_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

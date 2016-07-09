@@ -26,4 +26,12 @@ class employee_certification extends Model
      * @var array
      */
     protected $fillable = ['employee_id', 'certification_id', 'institute', 'granted_on', 'valid_upto'];
+    
+     public function get_employee(){
+        return $this->belongsTo('\App\employee', 'employee_id');
+    }
+    
+    public function get_certification(){
+        return $this->belongsTo('\App\certification', 'certification_id');
+    }
 }
