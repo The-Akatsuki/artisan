@@ -31,7 +31,9 @@ class employee_skillsController extends Controller
      */
     public function create()
     {
-        return view('employee_skills.create');
+        $employees = \App\employee::lists('employee_name', 'id');
+        $skills = \App\skill::lists('skill','id');
+        return view('employee_skills.create', compact('employees', 'skills'));
     }
 
     /**
@@ -60,7 +62,7 @@ class employee_skillsController extends Controller
     public function show($id)
     {
         $employee_skill = employee_skill::findOrFail($id);
-
+       
         return view('employee_skills.show', compact('employee_skill'));
     }
 
@@ -75,7 +77,10 @@ class employee_skillsController extends Controller
     {
         $employee_skill = employee_skill::findOrFail($id);
 
-        return view('employee_skills.edit', compact('employee_skill'));
+        $employees = \App\employee::lists('employee_name', 'id');
+        $skills = \App\skill::lists('skill','id');        
+        
+        return view('employee_skills.edit', compact('employee_skill', 'employees', 'skills'));
     }
 
     /**
