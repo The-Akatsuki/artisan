@@ -31,7 +31,9 @@ class employee_certificationsController extends Controller
      */
     public function create()
     {
-        return view('employee_certifications.create');
+        $employees = \App\employee::lists('employee_name', 'id');
+        $certification = \App\certification::lists('certification', 'id');
+        return view('employee_certifications.create', compact('employees','certification'));
     }
 
     /**
@@ -75,7 +77,9 @@ class employee_certificationsController extends Controller
     {
         $employee_certification = employee_certification::findOrFail($id);
 
-        return view('employee_certifications.edit', compact('employee_certification'));
+        $employees = \App\employee::lists('employee_name', 'id');
+        $certification = \App\certification::lists('certification', 'id');
+        return view('employee_certifications.edit', compact('employee_certification','employees','certification'));
     }
 
     /**

@@ -17,7 +17,9 @@
                 {{-- */$x++;/* --}}
                 <tr>
                     <td>{{ $x }}</td>
-                    <td>{{ $item->employee_id }}</td><td>{{ $item->certification_id }}</td><td>{{ $item->institute }}</td>
+                   <td>{{ $item->get_employee->employee_name }}</td>
+                    <td>{{ $item->get_certification->certification }}</td>
+                    <td>{{ $item->institute }}</td>
                     <td>
                         <a href="{{ url('/employee_certifications/' . $item->id) }}" class="btn btn-success btn-xs" title="View employee_certification"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                         <a href="{{ url('/employee_certifications/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit employee_certification"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

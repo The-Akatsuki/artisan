@@ -9,16 +9,16 @@
     {!! Form::open(['url' => '/employee_certifications', 'class' => 'form-horizontal']) !!}
 
                 <div class="form-group {{ $errors->has('employee_id') ? 'has-error' : ''}}">
-                {!! Form::label('employee_id', 'Employee Id', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('employee_id', 'Employee', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('employee_id', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('employee_id', $employees ,null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('employee_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('certification_id') ? 'has-error' : ''}}">
-                {!! Form::label('certification_id', 'Certification Id', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('certification_id', 'Certification', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::number('certification_id', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('certification_id', $certification, null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('certification_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
